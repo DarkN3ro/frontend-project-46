@@ -13,8 +13,10 @@
   "author": "Felve",
   "license": "ISC",
   "dependencies": {
+    "@hexlet/immutable-fs-trees": "^0.7.2",
     "commander": "^12.1.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "@eslint/create-config": "^1.0.0",
