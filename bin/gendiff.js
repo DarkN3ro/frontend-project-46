@@ -2,7 +2,7 @@
 import { program } from 'commander';
 import path from 'path';
 import process from 'process';
-import { parseOfFile } from '../bin/index.js';
+import { parseOfFile, genDiff } from '../bin/index.js';
 
 program
   .description('Compares two configuration files and shows a difference.');
@@ -15,8 +15,9 @@ program
   // .argument('<filepath1> <filepath2>')
   .helpOption('-h, --help ', 'output usage information')
   .action((filepath1, filepath2) => {
-    console.log(parseOfFile(filepath1));
-    console.log(parseOfFile(filepath2));
+    const one = parseOfFile(filepath1);
+    const two = parseOfFile(filepath2);
+    console.log(genDiff(one, two));
   });
 
 program.parse(process.argv);
