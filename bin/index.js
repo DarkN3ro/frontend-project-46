@@ -3,9 +3,7 @@ import _ from 'lodash';
 
 const genDiff = (obj1, obj2) => {
   const result = [];
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-  const keysSort = _.union(keys1, keys2);
+  const keysSort = _.union(Object.keys(obj1), Object.keys(obj2));
   const keys = _.sortBy(keysSort);
   result.push('{');
   for (const key of keys) {
