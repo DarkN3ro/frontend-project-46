@@ -2,10 +2,6 @@
 import _ from 'lodash';
 
 const genDiff = (obj1, obj2) => {
-  // if (Object.keys(obj1).length === 0 && Object.keys(obj2).length === 0) {
-  //   return '';
-  // }
-
   const result = [];
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
@@ -52,6 +48,9 @@ for (const key of keys) {
   return result
 
 */
+
+// if (Object.keys(obj1).length === 0 && Object.keys(obj2).length === 0) {
+//   return '';
 
 // const filename = 'filepath1.json';
 // console.log(parseOfFile(filename));
