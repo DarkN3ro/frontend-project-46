@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1728354819173" clover="3.2.0">
-  <project timestamp="1728354819173" name="All files">
+<coverage generated="1728355194557" clover="3.2.0">
+  <project timestamp="1728355194557" name="All files">
     <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4" elements="35" coveredelements="35" complexity="0" loc="25" ncloc="25" packages="2" files="2" classes="2"/>
     <package name="bin">
       <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="index.js" path="/home/sombra/frontend-project-46/bin/index.js">
         <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="18" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src">
