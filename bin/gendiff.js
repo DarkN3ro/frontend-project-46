@@ -2,7 +2,8 @@
 import { program } from 'commander';
 // import path from 'path';
 import process from 'process';
-import { parseOfFile, genDiff } from './index.js';
+import genDiff from './index.js';
+import { parseOfFile } from '../src/parse.js';
 
 program
   .description('Compares two configuration files and shows a difference.');

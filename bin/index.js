@@ -1,47 +1,34 @@
 /* eslint-disable no-restricted-syntax */
-import path, { dirname } from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
 import _ from 'lodash';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
-
-// console.log(getFixturePath('filepath1.json'));
-// console.log(json2);
-
-const parseOfFile = (filename) => {
-  const data = JSON.parse(readFile(filename));
-  return data;
-};
-
 const genDiff = (obj1, obj2) => {
-  const result = ['{'];
+  // if (Object.keys(obj1).length === 0 && Object.keys(obj2).length === 0) {
+  //   return '';
+  // }
+
+  const result = [];
   const keys1 = Object.keys(obj1);
   const keys2 = Object.keys(obj2);
   const keysSort = _.union(keys1, keys2);
   const keys = _.sortBy(keysSort);
-
+  result.push('{');
   for (const key of keys) {
     if (!Object.hasOwn(obj1, key)) {
-      result.push(`  + ${key}: ${obj2[key]}`);
+      result.push(`    + ${key}: ${obj2[key]}`);
     } else if (!Object.hasOwn(obj2, key)) {
-      result.push(`  - ${key}: ${obj1[key]}`);
+      result.push(`    - ${key}: ${obj1[key]}`);
     } else if (obj1[key] !== obj2[key]) {
-      result.push(`  - ${key}: ${obj1[key]}`);
-      result.push(`  + ${key}: ${obj2[key]}`);
+      result.push(`    - ${key}: ${obj1[key]}`);
+      result.push(`    + ${key}: ${obj2[key]}`);
     } else {
-      result.push(`    ${key}: ${obj1[key]}`);
+      result.push(`      ${key}: ${obj1[key]}`);
     }
   }
-  result.push('}');
+  result.push('  }');
   return result.join('\n');
 };
 
-export { parseOfFile, genDiff };
+export default genDiff;
 
 /* const result = {};
 const keys1 = Object.keys(obj1);
