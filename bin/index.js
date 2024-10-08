@@ -2,10 +2,9 @@
 import _ from 'lodash';
 
 const genDiff = (obj1, obj2) => {
-  const result = [];
+  const result = ['{'];
   const keysSort = _.union(Object.keys(obj1), Object.keys(obj2));
   const keys = _.sortBy(keysSort);
-  result.push('{');
   for (const key of keys) {
     if (!Object.hasOwn(obj1, key)) {
       result.push(`    + ${key}: ${obj2[key]}`);
