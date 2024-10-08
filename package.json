@@ -8,7 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "npx lest"
+    "test": "npx jest"
   },
   "author": "Felve",
   "license": "ISC",

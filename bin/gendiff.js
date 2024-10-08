@@ -3,7 +3,7 @@ import { program } from 'commander';
 // import path from 'path';
 import process from 'process';
 import genDiff from './index.js';
-import { parseOfFile } from '../src/parse.js';
+import parseOfFile from '../src/parse.js';
 
 program
   .description('Compares two configuration files and shows a difference.');
@@ -24,4 +24,3 @@ program
 program.parse(process.argv);
 
 // console.log(path.resolve());
-// console.log('Current working directory: ', process.cwd());
