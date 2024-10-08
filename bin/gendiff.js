@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import path from 'path';
+// import path from 'path';
 import process from 'process';
-import { parseOfFile, genDiff } from '../bin/index.js';
+import { parseOfFile, genDiff } from './index.js';
 
 program
   .description('Compares two configuration files and shows a difference.');
@@ -22,5 +22,5 @@ program
 
 program.parse(process.argv);
 
-//console.log(path.resolve());
-//console.log('Current working directory: ', process.cwd());
+// console.log(path.resolve());
+// console.log('Current working directory: ', process.cwd());
