@@ -2,7 +2,7 @@
 import { program } from 'commander';
 // import path from 'path';
 import process from 'process';
-import genDiff from './index.js';
+import genDiff from '../src/stylish.js';
 import parseOfFile from '../src/parsers.js';
 
 program
