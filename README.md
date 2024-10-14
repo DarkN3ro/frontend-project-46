@@ -25,36 +25,6 @@ Creating a report in the following formats:
 2. Go to the directory with the cloned repository
 3. Run the command "make install"
 
-## Functional
-
-Support for input formats: yaml, json.
-
-Creating a report in the following formats:
-- stylish (default format)
-- plain text
-- json
-
-## How to Setup
-
-1. Clone repository
-2. Go to the directory with the cloned repository
-3. Run the command "make install"
-
-## Functional
-
-Support for input formats: yaml, json.
-
-Creating a report in the following formats:
-- stylish (default format)
-- plain text
-- json
-
-## How to Setup
-
-1. Clone repository
-2. Go to the directory with the cloned repository
-3. Run the command "make install"
-
 ## Calling the help information 
 ```bash
 gendiff -h
