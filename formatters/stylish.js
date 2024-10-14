@@ -1,28 +1,31 @@
 import _ from 'lodash';
 
+const replacer = ' ';
+const spaceCount = 4;
+
+// eslint-disable-next-line consistent-return
+const formatValue = (val, depths) => {
+  if (_.isObject(val) && val !== null) {
+    const spaces = replacer.repeat(depths * spaceCount);
+    const entriesVal = Object.entries(val);
+    const resul = ['{'];
+    entriesVal.forEach(([key, value]) => {
+      resul.push(`${spaces}    ${key}: ${formatValue(value, depths + 1)}`);
+    });
+    resul.push(`${spaces}}`);
+    return resul.join('\n');
+  }
+  if (!_.isObject(val)) {
+    return val;
+  }
+};
+
 const diffFormattedStylish = (diffTree, depth = 0) => {
   const entries = Object.entries(diffTree);
-  const replacer = ' ';
-  const spaceCount = 4;
+
   const retreat = replacer.repeat(depth * spaceCount);
   const displace = `${retreat}${replacer.repeat(spaceCount / 2)}`;
 
-  // eslint-disable-next-line consistent-return
-  const formatValue = (val, depths) => {
-    if (_.isObject(val) && val !== null) {
-      const spaces = replacer.repeat(depths * spaceCount);
-      const entriesVal = Object.entries(val);
-      const resul = ['{'];
-      entriesVal.forEach(([key, value]) => {
-        resul.push(`${spaces}    ${key}: ${formatValue(value, depths + 1)}`);
-      });
-      resul.push(`${spaces}}`);
-      return resul.join('\n');
-    }
-    if (!_.isObject(val)) {
-      return val;
-    }
-  };
   const result = ['{'];
   entries.forEach(([key, value]) => {
     const addedNode = `${displace}+ ${key}: ${formatValue(value.newValue, depth + 1)}`;
