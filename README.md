@@ -8,7 +8,37 @@
 
 ## Description
 
-Gendiff - is a program that determines the difference between two data structures. This is a popular task, for which there are many online services, for example http://www.jsondiff.com /. A similar mechanism is used when outputting tests or when automatically tracking changes in configuration files.
+Gendiff is a program that detects the difference between two data structures. This program accepts input data in json and yaml formats, compares them with each other and outputs the result in one of three format options. The files are subject to comparison, both of which are json, both of which are yaml, as well as if one format differs from the other, for example, the first json file and the second yaml.
+
+## Functional
+
+Support for input formats: yaml, json.
+
+Creating a report in the following formats:
+- stylish (default format)
+- plain text
+- json
+
+## How to Setup
+
+1. Clone repository
+2. Go to the directory with the cloned repository
+3. Run the command "make install"
+
+## Functional
+
+Support for input formats: yaml, json.
+
+Creating a report in the following formats:
+- stylish (default format)
+- plain text
+- json
+
+## How to Setup
+
+1. Clone repository
+2. Go to the directory with the cloned repository
+3. Run the command "make install"
 
 ## Functional
 
