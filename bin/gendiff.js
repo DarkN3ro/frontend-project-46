@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-// import path from 'path';
 import process from 'process';
 import diffValues from '../src/treeDiff.js';
 import viewFormat from '../formatters/stylish.js';
@@ -11,10 +10,9 @@ program
 
 program
   .version('0.0.1', '-V, --version', 'output the version number')
-  .option('-f, --format [type]', 'output format', 'stylish')
+  .option('-f, --format [type]', 'output format')
   .argument('<filepath1>')
   .argument('<filepath2>')
-  // .argument('<filepath1> <filepath2>')
   .helpOption('-h, --help ', 'output usage information')
   .action((filepath1, filepath2) => {
     const data1 = parseOfFile(filepath1);
@@ -27,4 +25,3 @@ program
 
 program.parse(process.argv);
 export default viewFormat;
-// console.log(path.resolve());
