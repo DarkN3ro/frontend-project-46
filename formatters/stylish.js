@@ -13,10 +13,8 @@ const diffFormattedStylish = (diffTree, depth = 0) => {
       const spaces = replacer.repeat(depths * spaceCount);
       const entriesVal = Object.entries(val);
       const resul = ['{'];
-      entriesVal.forEach(([key, vali]) => {
-        if (_.isObject(val) && val !== null) {
-          resul.push(`${spaces}    ${key}: ${formatValue(vali, depths + 1)}`);
-        }
+      entriesVal.forEach(([key, value]) => {
+        resul.push(`${spaces}    ${key}: ${formatValue(value, depths + 1)}`);
       });
       resul.push(`${spaces}}`);
       return resul.join('\n');
@@ -25,19 +23,21 @@ const diffFormattedStylish = (diffTree, depth = 0) => {
       return val;
     }
   };
-
   const result = ['{'];
   entries.forEach(([key, value]) => {
+    const addedNode = `${displace}+ ${key}: ${formatValue(value.newValue, depth + 1)}`;
+    const deletedNode = `${displace}- ${key}: ${formatValue(value.oldValue, depth + 1)}`;
+    const unchangedNode = `${displace}  ${key}: ${formatValue(value.oldValue, depth + 1)}`;
     if (value.type === 'nested') {
       result.push(`${displace}  ${key}: ${diffFormattedStylish(value.children, depth + 1)}`);
     } else if (value.type === 'changed') {
-      result.push(`${displace}- ${key}: ${formatValue(value.oldValue, depth + 1)}\n${displace}+ ${key}: ${formatValue(value.newValue, depth + 1)}`);
+      result.push(deletedNode, addedNode);
     } else if (value.type === 'added') {
-      result.push(`${displace}+ ${key}: ${formatValue(value.newValue, depth + 1)}`);
+      result.push(addedNode);
     } else if (value.type === 'deleted') {
-      result.push(`${displace}- ${key}: ${formatValue(value.oldValue, depth + 1)}`);
+      result.push(deletedNode);
     } else if (value.type === 'unchanged') {
-      result.push(`${displace}  ${key}: ${formatValue(value.oldValue, depth + 1)}`);
+      result.push(unchangedNode);
     }
   });
   result.push(`${retreat}}`);
