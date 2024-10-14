@@ -7,6 +7,7 @@ const diffFormattedStylish = (diffTree, depth = 0) => {
   const retreat = replacer.repeat(depth * spaceCount);
   const displace = `${retreat}${replacer.repeat(spaceCount / 2)}`;
 
+  // eslint-disable-next-line consistent-return
   const formatValue = (val, depths) => {
     if (_.isObject(val) && val !== null) {
       const spaces = replacer.repeat(depths * spaceCount);
