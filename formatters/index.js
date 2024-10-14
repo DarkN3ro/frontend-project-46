@@ -4,8 +4,6 @@ import json from './json.js';
 
 const viewFormat = (differences, format = 'stylish') => {
   switch (format) {
-    case 'stylish':
-      return stylish(differences);
     case 'plain':
       return plain(differences);
     case 'json':

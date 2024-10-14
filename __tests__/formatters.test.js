@@ -13,6 +13,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 const fileJson1 = parseOfFile('firstfilepath1.json');
 const fileJson2 = parseOfFile('firstfilepath2.json');
 const fileYml1 = parseOfFile('firstfilepath1.yml');
+const fileYaml1 = parseOfFile('firstfilepath1.yaml');
 const fileYml2 = parseOfFile('firstfilepath2.yml');
 
 const fileNestedJson1 = parseOfFile('filepath1.json');
@@ -27,23 +28,23 @@ test('testing json', () => {
   expect(viewFormat(diffValues(fileJson1, fileJson2))).toEqual(resultNotNested);
 });
 test('testing yml', () => {
-  expect(viewFormat(diffValues(fileYml1, fileYml2))).toEqual(resultNotNested);
+  expect(viewFormat(diffValues(fileYaml1, fileYml2))).toEqual(resultNotNested);
 });
 test('testing json/yml', () => {
-  expect(viewFormat(diffValues(fileJson1, fileYml2))).toEqual(resultNotNested);
+  expect(viewFormat(diffValues(fileYml1, fileJson2))).toEqual(resultNotNested);
 });
-test('testing json nested', () => {
+test('testing json nested, format "stylish"', () => {
   expect(viewFormat(diffValues(fileNestedJson1, fileNestedJson2), 'stylish')).toEqual(resultStylish);
 });
-test('testing yml nested', () => {
+test('testing yml nested format "stylish"', () => {
   expect(viewFormat(diffValues(fileNestedYml1, fileNestedYml2), 'stylish')).toEqual(resultStylish);
 });
-test('testing json/yml nested', () => {
-  expect(viewFormat(diffValues(fileNestedJson1, fileNestedYml2), 'stylish')).toEqual(resultStylish);
+test('testing json/yml nested, format "default"', () => {
+  expect(viewFormat(diffValues(fileNestedJson1, fileNestedYml2))).toEqual(resultStylish);
 });
-test('testing json nested', () => {
+test('testing json nested, format "plain"', () => {
   expect(viewFormat(diffValues(fileNestedJson1, fileNestedYml2), 'plain')).toEqual(resultPlain);
 });
-test('testing yml nested', () => {
+test('testing yml nested, format "json"', () => {
   expect(viewFormat(diffValues(fileNestedJson1, fileNestedYml2), 'json')).toEqual(resultJson);
 });

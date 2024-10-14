@@ -15,9 +15,9 @@ program
   .argument('<filepath2>')
   .helpOption('-h, --help ', 'output usage information')
   .action((filepath1, filepath2, option) => {
-    const data1 = parseOfFile(filepath1);
-    const data2 = parseOfFile(filepath2);
-    const differences = diffValues(data1, data2);
+    const fileOne = parseOfFile(filepath1);
+    const fileTwo = parseOfFile(filepath2);
+    const differences = diffValues(fileOne, fileTwo);
     const formatted = viewFormat(differences, option.format);
 
     console.log(formatted);

@@ -26,3 +26,7 @@
 - Comparing YAML type files with nesting (format 'stylish', 'plain', 'default')
 
 [![asciicast](https://asciinema.org/a/680861.svg)](https://asciinema.org/a/680861)
+
+- Comparing JSON type files with nesting (format 'json')
+
+[![asciicast](https://asciinema.org/a/680864.svg)](https://asciinema.org/a/680864)
